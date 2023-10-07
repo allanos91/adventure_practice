@@ -45,8 +45,15 @@ class Room {
 
     getItemByName(name) {
         // Retrieves an item from a room by item name
-
+        let answer = null
+        this.items.forEach(itemObj => {
+            if (itemObj.name === name) {
+                answer = itemObj
+            }
+        })
+        return answer
         // Your code here
+        // return this.items.find(item) =>
     }
 
 }

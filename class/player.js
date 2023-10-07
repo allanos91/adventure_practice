@@ -34,9 +34,22 @@ class Player {
     }
 
     takeItem(itemName) {
+        // const item = this.currentRoom.getItemByName(itemName)
+        // if (item) {
+        //     this.items.push(item)
+        //     this.currentRoom.removeItem(item)
+        // }
         // Picks up an item from the current room into the player's inventory
+        this.currentRoom.items.forEach(item => {
+            if (item.name === itemName) {
+                this.items.push(item)
+            }
+        })
+        return this.items[-1]
 
-        // Your code here
+
+
+        // printInventory().push(this.currentRoom.items)
     }
 
     dropItem(itemName) {
@@ -54,7 +67,13 @@ class Player {
     getItemByName(name) {
         // Retrieves an item from a player's inventory by item name
 
-        // Your code here
+        let answer = null
+        this.items.forEach(itemObj => {
+            if (itemObj.name === name) {
+                answer = itemObj
+            }
+        })
+        return answer
     }
 }
 
