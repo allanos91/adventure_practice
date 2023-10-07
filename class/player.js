@@ -40,11 +40,15 @@ class Player {
         //     this.currentRoom.removeItem(item)
         // }
         // Picks up an item from the current room into the player's inventory
+
         this.currentRoom.items.forEach(item => {
             if (item.name === itemName) {
                 this.items.push(item)
             }
         })
+        let roomItems = this.currentRoom.items
+        let index = roomItems.indexOf(this.items[-1])
+        roomItems.splice(index, 1)
         return this.items[-1]
 
 
